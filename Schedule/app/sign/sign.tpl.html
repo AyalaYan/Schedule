@@ -1,0 +1,7 @@
+﻿<div>
+    <div class="btn sign-button" ng-click="signVm.enter();" ng-disabled="signVm.isEnterDisabled();">כניסה</div>
+    <div class="btn sign-button" ng-click="signVm.exit();" ng-disabled="signVm.isExitDisabled();">יציאה</div>
+</div>
+<br />
+<span >{{signVm.currentDayMessage}}&nbsp;</span>
+<a href="#/report" ng-show="signVm.currentDayMessage"> לצפיה בדוחות</a>
