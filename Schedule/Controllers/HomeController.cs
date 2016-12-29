@@ -11,7 +11,7 @@ namespace Schedule.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-
+            var i = 0;
             return View();
         }
     }
