@@ -1,5 +1,5 @@
-﻿<div ng-show="user">
-    <input type="text" class="form-control display-inline" datepicker-popup="MMM-yyyy" ng-model="reportVm.dt" 
+﻿<div ng-show="reportVm.user" class="reports-section">
+    <input type="text" class="form-control display-inline" datepicker-popup="MMM-yyyy" ng-model="reportVm.datetime" 
            is-open="opened" datepicker-options="{minMode: 'month'}" datepicker-mode="'month'" />
     <span class="input-group-btn display-inline">
         <button type="button" class="btn btn-default" ng-click="reportVm.open($event)">
@@ -16,7 +16,7 @@
                 <th class="col-md-3 "><span class="pull-right">סה"כ שעות יומיות</span></th>
             </tr>
         </thead>
-        <tbody ng-repeat="date in user.schedule | monthFilter:reportVm.dt">
+        <tbody ng-repeat="date in reportVm.user.schedules | monthFilter:reportVm.datetime">
             <tr>
                 <td class="col-md-3">
                     {{date.date}}

@@ -1,8 +1,6 @@
-﻿body {
-    $font-base: 12px;
-    $font-button: 52px;
-    $basic-color: #303030;
+﻿@import "../style.vars.scss";
 
+.sign-section {
     @mixin button-base {
         padding: 0px 40px;
         background-color: $basic-color;

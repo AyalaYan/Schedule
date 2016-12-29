@@ -1,4 +1,4 @@
-﻿body .sign-button {
+﻿.sign-section .sign-button {
   padding: 0px 40px;
   background-color: #303030;
   font-style: inherit;
@@ -10,6 +10,6 @@
   margin-top: 50px;
   font-size: 52px; }
 
-body .btn:hover {
+.sign-section .btn:hover {
   color: #ececec !important; }
 

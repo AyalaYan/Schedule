@@ -14,5 +14,9 @@
   {
     "outputFile": "app/report/sch.report.css",
     "inputFile": "app/report/sch.report.scss"
+  },
+  {
+    "outputFile": "app/style.vars.css",
+    "inputFile": "app/style.vars.scss"
   }
 ]

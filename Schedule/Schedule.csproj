@@ -200,6 +200,12 @@
     </Content>
     <Content Include="app\sign\sign.ctrl.js" />
     <Content Include="app\sign\sign.tpl.html" />
+    <Content Include="app\style.vars.css">
+      <DependentUpon>style.vars.scss</DependentUpon>
+    </Content>
+    <Content Include="app\style.vars.min.css">
+      <DependentUpon>style.vars.css</DependentUpon>
+    </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="bower_components\angular-ui-clock\angular-clock.js" />
     <Content Include="bower_components\angular-ui-clock\dist\angular-clock.css" />
@@ -283,6 +289,7 @@
     <Content Include="app\sign\sch.sign.scss" />
     <Content Include="app\login\sch.login.scss" />
     <Content Include="app\report\sch.report.scss" />
+    <Content Include="app\style.vars.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -367,6 +374,10 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\lodash.core.js" />
+    <Content Include="Scripts\lodash.core.min.js" />
+    <Content Include="Scripts\lodash.js" />
+    <Content Include="Scripts\lodash.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -391,6 +402,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

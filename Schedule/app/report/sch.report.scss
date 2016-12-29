@@ -1,4 +1,4 @@
-﻿body {
+﻿.reports-section {
     $table-width: 60%;
 
     @mixin table {
@@ -10,7 +10,6 @@
     }
 
     .table-report {
-
         @include table;
     }
 }

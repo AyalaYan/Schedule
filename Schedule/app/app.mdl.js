@@ -5,25 +5,28 @@
     angular.module('sch.report', []);
     angular.module('sch.services', []);
     angular.module("sch.filter", []);
-     angular.module("sch.directives", []);
+    angular.module("sch.directives", []);
     angular.module('schApp', [
         // Angular modules 
         'ngRoute',
+
+        // Custom modules 
         'sch.report',
         'sch.sign',
         'sch.login',
-        // Custom modules 
-        "ds.clock",
-        'ui.bootstrap',
+     
+        "sch.services",
+        "sch.filter",
+        "sch.directives",
+        
         // 3rd Party Modules
-       "sch.services",
-       "sch.filter",
-       "sch.directives"
+        'ui.bootstrap',
+        "ds.clock",
 
-    ]).run(['$rootScope', '$filter', function ($rootScope, $filter) {
+    ]).run(['$rootScope', '$filter','schData', function ($rootScope, $filter,schData) {
         $rootScope.title = "דוח שעות";
-        $rootScope.user = null;
-        $rootScope.currentDate = $filter('date')(new Date(), "dd/MM/yyyy");
+        $rootScope.currentDate = schData.currentDate;
+        $rootScope.user = schData.currentUser;
     }]);
     
 })();

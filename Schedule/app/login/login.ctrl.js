@@ -4,11 +4,12 @@
     function loginCtrl($scope, $rootScope, schData, $location, $filter) {
         var vm = this;
         vm.login = function () {
-            schData.getUser(vm.username, vm.password);
-            if ($rootScope.user == null) {
+            var user = schData.findUser(vm.username, vm.password);
+            if (user == null) {
                 vm.error = "משתמש לא קיים";
             }
-            else {               
+            else {
+                schData.currentUser=user;
                 $location.path("/sign");
             }
         };

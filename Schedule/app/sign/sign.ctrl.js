@@ -6,34 +6,59 @@
     function signCtrl($scope, $rootScope, schData) {
 
         var vm = this;
-        vm.SetToday = function () {
-            if ($rootScope.user.schedule[$rootScope.user.schedule.length - 1].date == $rootScope.currentDate) {
-                vm.today = $rootScope.user.schedule[$rootScope.user.schedule.length - 1];
-            }
-            if (vm.today && vm.today.timeStart && vm.today.timeEnd)
+
+        /****************************************************
+                    VARIABLES
+        **************************************************** */
+        vm.currentDayMessage = null;
+
+        /*****************************************************
+        *                  METHODS                          *
+        *****************************************************/
+        vm.enter = function () {
+            schData.setUserschedules(true, $rootScope.currentDate);
+            setCurrentDayMessage();
+        };
+
+        vm.exit = function () {
+            schData.setUserschedules(false, $rootScope.currentDate);
+            setCurrentDayMessage();
+        };
+
+        vm.isEnterDisabled = function () {
+            if (!schData.todaySchedule || (schData.todaySchedule && !schData.todaySchedule.timeStart))
             {
+                return false;
+            }
+            return true;
+        }
+
+        vm.isExitDisabled = function () {
+            if ((schData.todaySchedule && !schData.todaySchedule.timeEnd))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /*****************************************************
+       *               METHODS - PRIVATE                   *
+       *****************************************************/
+        function init() {
+            setCurrentDayMessage();
+        }
+
+        var setCurrentDayMessage = function () {
+            var today = schData.todaySchedule;
+            if (today && today.timeStart && today.timeEnd) {
                 vm.currentDayMessage = "החתמת היום בוצעה בהצלחה";
             }
         };
-        vm.enter = function () {
-            schData.setUserSchedule($rootScope.user, true);
-            vm.SetToday();
-        };
-        vm.exit = function () {
-            schData.setUserSchedule($rootScope.user, false);
-            vm.SetToday();
-            
-        };
-        vm.isEnterDisabled = function () {
-            if (!vm.today || (vm.today && !vm.today.timeStart))
-            { return false; }
-            return true;
-        }
-        vm.isExitDisabled = function () {
-            if ((vm.today && !vm.today.timeEnd))
-            { return false; }
-            return true;
-        }
-        vm.SetToday();
+
+        /*****************************************************
+        *                  EXECUTIONS                       *
+        *****************************************************/
+        init();
+
     }
 })();
